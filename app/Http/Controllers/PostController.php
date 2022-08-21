@@ -14,7 +14,7 @@ class PostController extends Controller
     {
         $this->middleware('auth')->except(['show', 'index']);
     }
-    
+
     public function index(User $user)
     {
 
@@ -54,7 +54,7 @@ class PostController extends Controller
         ]); */
 
         # Different approach to save data
-      /*   
+      /*
         $post = new Post;
         $post->title = $request->title;
         $post->description = $request->description;
@@ -84,7 +84,7 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
-       $this->authorize('delete', $post);
+        $this->authorize('delete', $post);
         $post->delete();
 
         $image_path = public_path('uploads' . '/' . $post->image);
